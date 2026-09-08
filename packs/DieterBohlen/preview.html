@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Verifikation: Dieter Bohlen - Alle 43 Waze-Ansagen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0d0f17;
+      color: #f1f5f9;
+      padding: 40px 20px 80px;
+    }
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(245, 158, 11, 0.2);
+      color: #fbbf24;
+      border: 1px solid rgba(251, 191, 36, 0.4);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+    }
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      color: #ffffff;
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    p.subtitle {
+      color: #94a3b8;
+      font-size: 15px;
+    }
+    .status-banner {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(217, 119, 6, 0.15));
+      border: 1px solid rgba(251, 191, 36, 0.35);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .status-title {
+      font-weight: 700;
+      color: #fbbf24;
+    }
+    .status-desc {
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+    .badge-count {
+      background: #d97706;
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .category-section {
+      margin-bottom: 32px;
+    }
+    .category-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #fbbf24;
+      margin-bottom: 14px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(251, 191, 36, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .prompt-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .prompt-card {
+      background: #171924;
+      border: 1px solid rgba(251, 191, 36, 0.15);
+      border-radius: 10px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: all 0.2s ease;
+    }
+    .prompt-card:hover {
+      border-color: #fbbf24;
+      background: #1f2130;
+      transform: translateX(3px);
+    }
+    .prompt-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .prompt-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+    .prompt-filename {
+      font-weight: 700;
+      font-size: 13px;
+      color: #fbbf24;
+      font-family: monospace;
+    }
+    .prompt-size {
+      font-size: 11px;
+      color: #64748b;
+    }
+    .prompt-text {
+      font-size: 14px;
+      color: #fef3c7;
+      line-height: 1.4;
+      font-style: italic;
+    }
+    .audio-player-container {
+      flex-shrink: 0;
+      width: 220px;
+    }
+    audio {
+      width: 100%;
+      height: 36px;
+      border-radius: 6px;
+    }
+    .actions-footer {
+      background: #171924;
+      border: 1px solid rgba(251, 191, 36, 0.35);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      margin-top: 40px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+    .actions-footer h3 {
+      font-family: 'Outfit', sans-serif;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .actions-footer p {
+      font-size: 14px;
+      color: #94a3b8;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="badge">🔥 DSDS / Pop-Titan • Qualitätsprüfung</div>
+      <h1>Verifikation: Alle 43 Ansagen</h1>
+      <p class="subtitle">Stimme: Dieter Bohlen (Modell 1: Kult, bissig & markant)</p>
+    </div>
+
+    <div class="status-banner">
+      <div>
+        <div class="status-title">🔒 Status: Bereit zur Freigabe</div>
+        <div class="status-desc">Alle 43 Dateien wurden generiert, normalisiert (+5.5dB Car-Boost) und komprimiert.</div>
+      </div>
+      <span class="badge-count">43 / 43 Prompts</span>
+    </div>
+
+    <div class="category-section">
+      <div class="category-title">
+        <span>🚗 Fahrtantritt & Begrüßung (Freche Bohlen-Sprüche)</span>
+        <span style="font-size: 12px; font-weight: normal; color: #94a3b8;">9 Prompts</span>
+      </div>
+      <div class="prompt-grid">
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">StartDrive1.mp3</span>
+              <span class="prompt-size">42.9 KB</span>
+            </div>
+            <div class="prompt-text">"Moin, Dieter hier! Also ganz ehrlich: Dein Fahrstil klingt jetzt schon wie 'ne tote Katze auf'm Auspuff! Schnall dich an, beweg deinen Hintern und fahr endlich los, sonst penn ich hier ein!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="StartDrive1.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">StartDrive2.mp3</span>
+              <span class="prompt-size">27.8 KB</span>
+            </div>
+            <div class="prompt-text">"Was ist das denn für 'ne Schlaftablette am Steuer?! Gib mal Gas jetzt, meine Oma schiebt ihren Rollator schneller über die Autobahn!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="StartDrive2.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">StartDrive3.mp3</span>
+              <span class="prompt-size">29.8 KB</span>
+            </div>
+            <div class="prompt-text">"So Freunde der Sonne! Dieter ist am Start. Wenn du heute fährst wie du aussiehst, kommen wir nie an. Abfahrt!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="StartDrive3.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">StartDrive4.mp3</span>
+              <span class="prompt-size">24.5 KB</span>
+            </div>
+            <div class="prompt-text">"Route berechnet! Keine Mätzchen heute, sonst zieh ich dir den Stecker wie den Null-Talenten beim Casting!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="StartDrive4.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">StartDrive5.mp3</span>
+              <span class="prompt-size">21.4 KB</span>
+            </div>
+            <div class="prompt-text">"Navigation läuft. Hände ans Lenkrad und Glotzen auf die Straße, sonst scheppert's im Karton!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="StartDrive5.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">StartDrive6.mp3</span>
+              <span class="prompt-size">25.8 KB</span>
+            </div>
+            <div class="prompt-text">"Hallo?! Fährst du noch oder rostest du schon?! Tritt aufs Pedal, wir haben keine Zeit für Rentner-Touren!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="StartDrive6.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">StartDrive7.mp3</span>
+              <span class="prompt-size">23.4 KB</span>
+            </div>
+            <div class="prompt-text">"Also optisch bist du ja schon grenzwertig, aber fahr wenigstens vernünftig. Auf geht's!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="StartDrive7.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">StartDrive8.mp3</span>
+              <span class="prompt-size">21.8 KB</span>
+            </div>
+            <div class="prompt-text">"Ganz ehrlich: Mit dem Fahrstil gewinnst du nicht mal den Recall im Seniorenheim. Los jetzt!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="StartDrive8.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">StartDrive9.mp3</span>
+              <span class="prompt-size">22.2 KB</span>
+            </div>
+            <div class="prompt-text">"Dieter Bohlen navigiert dich heute. Hör einfach auf mich, dann blamierst du dich nicht komplett."</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="StartDrive9.mp3"></audio>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="category-section">
+      <div class="category-title">
+        <span>⚠️ Warnungen, Blitzer & Rennleitung</span>
+        <span style="font-size: 12px; font-weight: normal; color: #94a3b8;">6 Prompts</span>
+      </div>
+      <div class="prompt-grid">
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">ApproachSpeedCam.mp3</span>
+              <span class="prompt-size">33.4 KB</span>
+            </div>
+            <div class="prompt-text">"Achtung, Blitzer voraus! Nimm sofort deinen Klumpfuß vom Gas, du Nase! Für das Bußgeld könntest du dir 'ne Gesangsstunde bei mir kaufen!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="ApproachSpeedCam.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">ApproachRedLightCam.mp3</span>
+              <span class="prompt-size">25.9 KB</span>
+            </div>
+            <div class="prompt-text">"Ampelblitzer! Nicht bei Rot drüberrutschen, sonst ist dein Lappen schneller weg als ein DSDS-Sieger!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="ApproachRedLightCam.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">Police.mp3</span>
+              <span class="prompt-size">24.0 KB</span>
+            </div>
+            <div class="prompt-text">"Achtung! Die Rennleitung steht da vorne! Mach bloß nicht auf dicke Hose, sondern fahr brav!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="Police.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">ApproachHazard.mp3</span>
+              <span class="prompt-size">20.1 KB</span>
+            </div>
+            <div class="prompt-text">"Gefahr auf der Fahrbahn! Augen auf, da liegt Zeug rum, weich aus!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="ApproachHazard.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">ApproachTraffic.mp3</span>
+              <span class="prompt-size">21.4 KB</span>
+            </div>
+            <div class="prompt-text">"Oh Mann, Stau voraus! Ich dreh durch, das klingt ja wieder nach Mega-Katastrophe!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="ApproachTraffic.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">ApproachAccident.mp3</span>
+              <span class="prompt-size">22.7 KB</span>
+            </div>
+            <div class="prompt-text">"Unfall da vorne gemeldet! Fahr vorsichtig vorbei und glotz nicht so blöd!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="ApproachAccident.mp3"></audio>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="category-section">
+      <div class="category-title">
+        <span>🧭 Abbiegen & Manöver (Du Tröte!)</span>
+        <span style="font-size: 12px; font-weight: normal; color: #94a3b8;">9 Prompts</span>
+      </div>
+      <div class="prompt-grid">
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">TurnLeft.mp3</span>
+              <span class="prompt-size">13.1 KB</span>
+            </div>
+            <div class="prompt-text">"Hier links abbiegen, du Tröte! Aber hurtig!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="TurnLeft.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">TurnRight.mp3</span>
+              <span class="prompt-size">19.6 KB</span>
+            </div>
+            <div class="prompt-text">"Hier rechts abbiegen! Und blinken nicht vergessen, ist kein Ratespiel!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="TurnRight.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">KeepLeft.mp3</span>
+              <span class="prompt-size">13.8 KB</span>
+            </div>
+            <div class="prompt-text">"Halt dich links! Da ist die Überholspur, du Schnecke!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="KeepLeft.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">KeepRight.mp3</span>
+              <span class="prompt-size">13.3 KB</span>
+            </div>
+            <div class="prompt-text">"Rechts rüber jetzt! Blockier hier nicht die Straße!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="KeepRight.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">Straight.mp3</span>
+              <span class="prompt-size">12.0 KB</span>
+            </div>
+            <div class="prompt-text">"Einfach geradeaus weiterbrettern, genau so!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="Straight.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">uturn.mp3</span>
+              <span class="prompt-size">20.9 KB</span>
+            </div>
+            <div class="prompt-text">"Sag mal, bist du komplett taub auf den Nüssen?! Sofort umdrehen, du fährst in die Pampa!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="uturn.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">ExitLeft.mp3</span>
+              <span class="prompt-size">10.7 KB</span>
+            </div>
+            <div class="prompt-text">"Nimm die Ausfahrt links, zieh durch!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="ExitLeft.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">ExitRight.mp3</span>
+              <span class="prompt-size">11.4 KB</span>
+            </div>
+            <div class="prompt-text">"Nimm die Ausfahrt rechts, runter von der Bahn!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="ExitRight.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">AndThen.mp3</span>
+              <span class="prompt-size">7.0 KB</span>
+            </div>
+            <div class="prompt-text">"Und direkt danach..."</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="AndThen.mp3"></audio>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="category-section">
+      <div class="category-title">
+        <span>🔄 Kreisverkehr</span>
+        <span style="font-size: 12px; font-weight: normal; color: #94a3b8;">8 Prompts</span>
+      </div>
+      <div class="prompt-grid">
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">Roundabout.mp3</span>
+              <span class="prompt-size">6.5 KB</span>
+            </div>
+            <div class="prompt-text">"Im Kreisverkehr..."</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="Roundabout.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">First.mp3</span>
+              <span class="prompt-size">9.3 KB</span>
+            </div>
+            <div class="prompt-text">"...nimmst du gleich die erste Ausfahrt!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="First.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">Second.mp3</span>
+              <span class="prompt-size">9.5 KB</span>
+            </div>
+            <div class="prompt-text">"...nimmst du die zweite Ausfahrt!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="Second.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">Third.mp3</span>
+              <span class="prompt-size">9.5 KB</span>
+            </div>
+            <div class="prompt-text">"...nimmst du die dritte Ausfahrt!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="Third.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">Fourth.mp3</span>
+              <span class="prompt-size">7.3 KB</span>
+            </div>
+            <div class="prompt-text">"...nimmst du die vierte Ausfahrt!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="Fourth.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">Fifth.mp3</span>
+              <span class="prompt-size">10.7 KB</span>
+            </div>
+            <div class="prompt-text">"...nimmst du die fünfte Ausfahrt!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="Fifth.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">Sixth.mp3</span>
+              <span class="prompt-size">8.0 KB</span>
+            </div>
+            <div class="prompt-text">"...nimmst du die sechste Ausfahrt!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="Sixth.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">Seventh.mp3</span>
+              <span class="prompt-size">8.9 KB</span>
+            </div>
+            <div class="prompt-text">"...nimmst du die siebte Ausfahrt!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="Seventh.mp3"></audio>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="category-section">
+      <div class="category-title">
+        <span>📏 Distanzansagen</span>
+        <span style="font-size: 12px; font-weight: normal; color: #94a3b8;">9 Prompts</span>
+      </div>
+      <div class="prompt-grid">
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">200.mp3</span>
+              <span class="prompt-size">7.7 KB</span>
+            </div>
+            <div class="prompt-text">"In zweihundert Metern..."</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="200.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">200meters.mp3</span>
+              <span class="prompt-size">7.3 KB</span>
+            </div>
+            <div class="prompt-text">"In zweihundert Metern..."</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="200meters.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">400.mp3</span>
+              <span class="prompt-size">7.0 KB</span>
+            </div>
+            <div class="prompt-text">"In vierhundert Metern..."</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="400.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">400meters.mp3</span>
+              <span class="prompt-size">7.7 KB</span>
+            </div>
+            <div class="prompt-text">"In vierhundert Metern..."</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="400meters.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">800.mp3</span>
+              <span class="prompt-size">7.3 KB</span>
+            </div>
+            <div class="prompt-text">"In achthundert Metern..."</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="800.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">800meters.mp3</span>
+              <span class="prompt-size">7.3 KB</span>
+            </div>
+            <div class="prompt-text">"In achthundert Metern..."</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="800meters.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">1000meters.mp3</span>
+              <span class="prompt-size">7.3 KB</span>
+            </div>
+            <div class="prompt-text">"In einem Kilometer..."</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="1000meters.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">1500.mp3</span>
+              <span class="prompt-size">9.1 KB</span>
+            </div>
+            <div class="prompt-text">"In fünfzehnhundert Metern..."</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="1500.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">1500meters.mp3</span>
+              <span class="prompt-size">8.9 KB</span>
+            </div>
+            <div class="prompt-text">"In eineinhalb Kilometern..."</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="1500meters.mp3"></audio>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="category-section">
+      <div class="category-title">
+        <span>🏁 Ankunft & Punkte (Recall-Level)</span>
+        <span style="font-size: 12px; font-weight: normal; color: #94a3b8;">2 Prompts</span>
+      </div>
+      <div class="prompt-grid">
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">Arrive.mp3</span>
+              <span class="prompt-size">27.5 KB</span>
+            </div>
+            <div class="prompt-text">"Ziel erreicht! Na siehste, war doch gar nicht so schwer. Für's Finale reicht's zwar noch nicht, aber war okay!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="Arrive.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-info">
+            <div class="prompt-meta">
+              <span class="prompt-filename">TickerPoints.mp3</span>
+              <span class="prompt-size">18.4 KB</span>
+            </div>
+            <div class="prompt-text">"Punkte eingesammelt! Wenigstens etwas, was du heute gebacken kriegst!"</div>
+          </div>
+          <div class="audio-player-container">
+            <audio controls preload="none" src="TickerPoints.mp3"></audio>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="actions-footer">
+      <h3>Bereit zum Veröffentlichen?</h3>
+      <p>Wenn dir alle Ansagen gefallen, gib einfach kurz Bescheid – dann lade ich das Pack direkt zu Waze hoch und veröffentliche es auf GitHub!</p>
+    </div>
+  </div>
+</body>
+</html>

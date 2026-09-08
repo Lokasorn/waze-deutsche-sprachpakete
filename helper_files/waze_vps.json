@@ -1,5 +1,20 @@
 [
   {
+    "name": "Dieter Bohlen",
+    "slug": "dieter-bohlen",
+    "language": "German",
+    "country_code": "DE",
+    "category": "Prominente / TV",
+    "waze_link": "https://waze.com/ul?acvp=8cbb9bf4-5168-4de1-acfa-1644e78378e6",
+    "download_url": "https://voice-prompts-ipv6.waze.com/8cbb9bf4-5168-4de1-acfa-1644e78378e6.tar.gz",
+    "uuid": "8cbb9bf4-5168-4de1-acfa-1644e78378e6",
+    "file_size_mb": 0.678,
+    "prompts_count": 43,
+    "status": "Active",
+    "author": "German Waze Community",
+    "sample_line": "Moin, Dieter hier! Dein Fahrstil klingt wie 'ne tote Katze auf'm Auspuff! Fahr endlich los..."
+  },
+  {
     "name": "Friedrich Merz",
     "slug": "friedrich-merz",
     "language": "German",
