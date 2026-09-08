@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waze Emotionen & Stimmungen - Große Stimmenauswahl</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #a855f7;
+      --primary-glow: rgba(168, 85, 247, 0.25);
+      --accent: #f43f5e;
+      --bg: #090d16;
+      --card-bg: rgba(17, 24, 39, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at 50% 0%, #2e1065 0%, #090d16 65%);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 40px 20px 80px;
+    }
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .badge-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      color: #c084fc;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 40px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffffff 0%, #d8b4fe 50%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 17px;
+      max-width: 780px;
+      margin: 0 auto 24px;
+      line-height: 1.5;
+    }
+    
+    /* Sticky summary bar */
+    .selection-banner {
+      position: sticky;
+      top: 16px;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border-radius: 16px;
+      padding: 16px 24px;
+      margin-bottom: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .selection-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .sel-chip {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .sel-chip strong {
+      color: #c084fc;
+    }
+    .copy-btn {
+      background: linear-gradient(135deg, #9333ea, #7e22ce);
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .copy-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4);
+    }
+
+    /* Category navigation tabs */
+    .cat-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+    .cat-tab {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cat-tab:hover, .cat-tab.active {
+      background: rgba(168, 85, 247, 0.18);
+      border-color: var(--primary);
+      color: #c084fc;
+      box-shadow: 0 0 20px var(--primary-glow);
+    }
+
+    /* Category Section */
+    .category-section {
+      margin-bottom: 60px;
+      scroll-margin-top: 110px;
+    }
+    .cat-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .cat-icon {
+      font-size: 32px;
+      line-height: 1;
+    }
+    .cat-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+    }
+    .cat-desc {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-left: auto;
+    }
+
+    /* Grid of Cards */
+    .models-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 20px;
+    }
+    .model-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      backdrop-filter: blur(12px);
+      transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .model-card:hover {
+      border-color: rgba(168, 85, 247, 0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+    .model-card.selected {
+      border-color: #a855f7;
+      background: rgba(168, 85, 247, 0.12);
+      box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+    .card-title-group h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .card-title-group .model-id {
+      font-family: monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .model-tag {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      letter-spacing: 0.5px;
+    }
+    .model-tag.favorit {
+      background: rgba(244, 63, 94, 0.18);
+      border: 1px solid rgba(244, 63, 94, 0.4);
+      color: #fb7185;
+    }
+
+    /* Audio section inside card */
+    .sample-box {
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .sample-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #c084fc;
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .sample-text {
+      font-size: 13px;
+      line-height: 1.45;
+      color: #cbd5e1;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    .audio-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .play-btn {
+      background: rgba(168, 85, 247, 0.18);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      color: #c084fc;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+    .play-btn:hover {
+      background: #a855f7;
+      color: #090d16;
+      transform: scale(1.08);
+    }
+    .play-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+    .track-bar {
+      flex: 1;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .track-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 0%;
+      background: var(--primary);
+      border-radius: 3px;
+      transition: width 0.1s linear;
+    }
+    .track-time {
+      font-size: 11px;
+      font-family: monospace;
+      color: var(--text-muted);
+      min-width: 32px;
+      text-align: right;
+    }
+
+    /* Vote button */
+    .vote-btn {
+      width: 100%;
+      margin-top: 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 13.5px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .vote-btn:hover {
+      background: rgba(168, 85, 247, 0.15);
+      border-color: var(--primary);
+      color: #c084fc;
+    }
+    .model-card.selected .vote-btn {
+      background: #a855f7;
+      border-color: #a855f7;
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="badge-top">🎭 Waze Soundpack Studio</div>
+    <h1>Emotionen & Stimmungs-Soundpacks</h1>
+    <p class="subtitle">Höre dir die Stimmen für alle 4 Stimmungen an (Gelangweilt/müde, Wütend/aggressiv, Beleidigend/frech, Lustig/gut drauf). Klicke auf <strong>"Favorit wählen"</strong>, um deine Auswahl festzuhalten!</p>
+  </header>
+
+  <!-- Sticky Selection Summary -->
+  <div class="selection-banner">
+    <div>
+      <div style="font-size: 12px; text-transform: uppercase; color: var(--text-muted); font-weight: 700; margin-bottom: 6px;">Deine gewählten Favoriten:</div>
+      <div class="selection-items" id="summaryChips">
+        <div class="sel-chip" id="chip-muede">🥱 Gelangweilt: <strong>Noch nicht gewählt</strong></div>
+        <div class="sel-chip" id="chip-wuetend">🤬 Wütend: <strong>Noch nicht gewählt</strong></div>
+        <div class="sel-chip" id="chip-frech">😈 Beleidigend: <strong>Noch nicht gewählt</strong></div>
+        <div class="sel-chip" id="chip-lustig">🎉 Lustig: <strong>Noch nicht gewählt</strong></div>
+      </div>
+    </div>
+    <button class="copy-btn" onclick="copySelection()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Auswahl kopieren
+    </button>
+  </div>
+
+  <!-- Category Nav -->
+  <div class="cat-nav">
+    <button class="cat-tab active" onclick="scrollToCategory('muede')">🥱 1. Gelangweilt / müde</button>
+    <button class="cat-tab" onclick="scrollToCategory('wuetend')">🤬 2. Wütend / aggressiv</button>
+    <button class="cat-tab" onclick="scrollToCategory('frech')">😈 3. Beleidigend / frech</button>
+    <button class="cat-tab" onclick="scrollToCategory('lustig')">🎉 4. Lustig / gut drauf</button>
+  </div>
+
+  <!-- 1. GELANGWEILT / MÜDE -->
+  <section class="category-section" id="sec-muede">
+    <div class="cat-header">
+      <span class="cat-icon">🥱</span>
+      <h2 class="cat-title">1. Gelangweilt / müde</h2>
+      <span class="cat-desc">Null Bock, träge, monoton & chronisch unmotiviert</span>
+    </div>
+    <div class="models-grid">
+      <!-- Modell 1 -->
+      <div class="model-card selected" id="card-muede_mod1" data-cat="muede" data-name="Modell 1 (Bernd / Depri-Kult)">
+        <div class="card-top">
+          <div class="card-title-group">
+            <h3>Modell 1: Bernd (Cynical & Depri-Kult)</h3>
+            <div class="model-id">ID: 048507e6...49ea</div>
+          </div>
+          <span class="model-tag favorit">Top-Favorit</span>
+        </div>
+        <div class="sample-box">
+          <div class="sample-label"><span>1. Fahrtantritt</span><span>Audio-Sample</span></div>
+          <div class="sample-text">„Boah ey... müssen wir jetzt echt losfahren? Ich hab so null Bock, ich will einfach nur meine Ruhe... na gut, Zündung an und bloß nicht hetzen...“</div>
+          <div class="audio-row">
+            <button class="play-btn" onclick="togglePlay('samples/muede_mod1_start.mp3', this)"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg></button>
+            <div class="track-bar" onclick="seekTrack(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        <div class="sample-box">
+          <div class="sample-label"><span>2. Blitzer-Warnung</span><span>Audio-Sample</span></div>
+          <div class="sample-text">„Gähn... pass auf, da vorne steht 'n Blitzer... fahr halt langsamer, oder zahl halt, mir doch egal...“</div>
+          <div class="audio-row">
+            <button class="play-btn" onclick="togglePlay('samples/muede_mod1_blitzer.mp3', this)"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg></button>
+            <div class="track-bar" onclick="seekTrack(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        <button class="vote-btn" onclick="selectModel('muede', 'muede_mod1', 'Modell 1 (Bernd / Depri-Kult)')">✓ Als Favorit gewählt</button>
+      </div>
+
+      <!-- Modell 2 -->
+      <div class="model-card" id="card-muede_mod2" data-cat="muede" data-name="Modell 2 (Schläfriger Misanthrop)">
+        <div class="card-top">
+          <div class="card-title-group">
+            <h3>Modell 2: Schläfriger Misanthrop</h3>
+            <div class="model-id">ID: a195f55f...d9ea</div>
+          </div>
+          <span class="model-tag">Monoton & Träge</span>
+        </div>
+        <div class="sample-box">
+          <div class="sample-label"><span>1. Fahrtantritt</span><span>Audio-Sample</span></div>
+          <div class="sample-text">„Boah ey... müssen wir jetzt echt losfahren? Ich hab so null Bock, ich will einfach nur schlafen... na gut, fahr halt los...“</div>
+          <div class="audio-row">
+            <button class="play-btn" onclick="togglePlay('samples/muede_mod2_start.mp3', this)"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg></button>
+            <div class="track-bar" onclick="seekTrack(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        <div class="sample-box">
+          <div class="sample-label"><span>2. Blitzer-Warnung</span><span>Audio-Sample</span></div>
+          <div class="sample-text">„Gähn... pass auf, da vorne steht 'n Blitzer... nimm halt den Fuß vom Gas, wenn du nicht blechen willst...“</div>
+          <div class="audio-row">
+            <button class="play-btn" onclick="togglePlay('samples/muede_mod2_blitzer.mp3', this)"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg></button>
+            <div class="track-bar" onclick="seekTrack(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        <button class="vote-btn" onclick="selectModel('muede', 'muede_mod2', 'Modell 2 (Schläfriger Misanthrop)')">Diesen Favoriten wählen</button>
+      </div>
+
+      <!-- Modell 3 -->
+      <div class="model-card" id="card-muede_mod3" data-cat="muede" data-name="Modell 3 (Schlaftablette)">
+        <div class="card-top">
+          <div class="card-title-group">
+            <h3>Modell 3: Schlaftablette</h3>
+            <div class="model-id">ID: 0cac1239...e666</div>
+          </div>
+          <span class="model-tag">Tiefenentspannt</span>
+        </div>
+        <div class="sample-box">
+          <div class="sample-label"><span>1. Fahrtantritt</span><span>Audio-Sample</span></div>
+          <div class="sample-text">„Mmmh... müssen wir wirklich los? Ich penn hier gleich weg... na schön, wir fahren los, ganz gemächlich...“</div>
+          <div class="audio-row">
+            <button class="play-btn" onclick="togglePlay('samples/muede_mod3_start.mp3', this)"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg></button>
+            <div class="track-bar" onclick="seekTrack(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        <div class="sample-box">
+          <div class="sample-label"><span>2. Blitzer-Warnung</span><span>Audio-Sample</span></div>
+          <div class="sample-text">„Huch... da vorne blitzt es gleich, wenn du nicht abbremst... mach mal langsam...“</div>
+          <div class="audio-row">
+            <button class="play-btn" onclick="togglePlay('samples/muede_mod3_blitzer.mp3', this)"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg></button>
+            <div class="track-bar" onclick="seekTrack(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        <button class="vote-btn" onclick="selectModel('muede', 'muede_mod3', 'Modell 3 (Schlaftablette)')">Diesen Favoriten wählen</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. WÜTEND / AGGRESSIV -->
+  <section class="category-section" id="sec-wuetend">
+    <div class="cat-header">
+      <span class="cat-icon">🤬</span>
+      <h2 class="cat-title">2. Wütend / aggressiv</h2>
+      <span class="cat-desc">Cholerisch, rasend, laut & permanenter Ausraster-Modus</span>
+    </div>
+    <div class="models-grid">
+      <!-- Modell 1 -->
+      <div class="model-card selected" id="card-wuetend_mod1" data-cat="wuetend" data-name="Modell 1 (Wütend / Dunkel & Drohend)">
+        <div class="card-top">
+          <div class="card-title-group">
+            <h3>Modell 1: Wütend (Dunkel & Aggressiv)</h3>
+            <div class="model-id">ID: 87fac6df...da5a</div>
+          </div>
+          <span class="model-tag favorit">Top-Favorit</span>
+        </div>
+        <div class="sample-box">
+          <div class="sample-label"><span>1. Fahrtantritt</span><span>Audio-Sample</span></div>
+          <div class="sample-text">„Jetzt schnall dich endlich an, verdammt noch mal! Tritt das Gaspedal durch und fahr los, ich hab keine Zeit für deine Trödelei!“</div>
+          <div class="audio-row">
+            <button class="play-btn" onclick="togglePlay('samples/wuetend_mod1_start.mp3', this)"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg></button>
+            <div class="track-bar" onclick="seekTrack(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        <div class="sample-box">
+          <div class="sample-label"><span>2. Blitzer-Warnung</span><span>Audio-Sample</span></div>
+          <div class="sample-text">„Bremse rein, du Idiot! Blitzer voraus! Willst du deinen Lappen verlieren oder was?! Geh sofort vom Gas!“</div>
+          <div class="audio-row">
+            <button class="play-btn" onclick="togglePlay('samples/wuetend_mod1_blitzer.mp3', this)"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg></button>
+            <div class="track-bar" onclick="seekTrack(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        <button class="vote-btn" onclick="selectModel('wuetend', 'wuetend_mod1', 'Modell 1 (Wütend / Dunkel & Drohend)')">✓ Als Favorit gewählt</button>
+      </div>
+
+      <!-- Modell 2 -->
+      <div class="model-card" id="card-wuetend_mod2" data-cat="wuetend" data-name="Modell 2 (Ausraster / Choleriker)">
+        <div class="card-top">
+          <div class="card-title-group">
+            <h3>Modell 2: Ausraster (Hysterisch & Laut)</h3>
+            <div class="model-id">ID: 00941ad7...c593</div>
+          </div>
+          <span class="model-tag">Choleriker</span>
+        </div>
+        <div class="sample-box">
+          <div class="sample-label"><span>1. Fahrtantritt</span><span>Audio-Sample</span></div>
+          <div class="sample-text">„Fahr jetzt los, verdammt! Worauf wartest du noch?! Anschnallen und Gas geben, zack zack!“</div>
+          <div class="audio-row">
+            <button class="play-btn" onclick="togglePlay('samples/wuetend_mod2_start.mp3', this)"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg></button>
+            <div class="track-bar" onclick="seekTrack(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        <div class="sample-box">
+          <div class="sample-label"><span>2. Blitzer-Warnung</span><span>Audio-Sample</span></div>
+          <div class="sample-text">„BLITZER! Pass doch mal auf da vorne, bist du blind?! Geh sofort runter vom Gas, Mann!“</div>
+          <div class="audio-row">
+            <button class="play-btn" onclick="togglePlay('samples/wuetend_mod2_blitzer.mp3', this)"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg></button>
+            <div class="track-bar" onclick="seekTrack(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        <button class="vote-btn" onclick="selectModel('wuetend', 'wuetend_mod2', 'Modell 2 (Ausraster / Choleriker)')">Diesen Favoriten wählen</button>
+      </div>
+
+      <!-- Modell 3 -->
+      <div class="model-card" id="card-wuetend_mod3" data-cat="wuetend" data-name="Modell 3 (Empörter Choleriker)">
+        <div class="card-top">
+          <div class="card-title-group">
+            <h3>Modell 3: Empörter Choleriker</h3>
+            <div class="model-id">ID: c4a08c39...ec09</div>
+          </div>
+          <span class="model-tag">Empört</span>
+        </div>
+        <div class="sample-box">
+          <div class="sample-label"><span>1. Fahrtantritt</span><span>Audio-Sample</span></div>
+          <div class="sample-text">„Unfassbar! Wir stehen hier immer noch rum?! Schnall dich an und beweg diesen Haufen Schrott endlich vom Fleck!“</div>
+          <div class="audio-row">
+            <button class="play-btn" onclick="togglePlay('samples/wuetend_mod3_start.mp3', this)"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg></button>
+            <div class="track-bar" onclick="seekTrack(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        <div class="sample-box">
+          <div class="sample-label"><span>2. Blitzer-Warnung</span><span>Audio-Sample</span></div>
+          <div class="sample-text">„Achtung, Blitzer voraus! Nimm den Fuß vom Gas, sonst raste ich hier komplett aus!“</div>
+          <div class="audio-row">
+            <button class="play-btn" onclick="togglePlay('samples/wuetend_mod3_blitzer.mp3', this)"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg></button>
+            <div class="track-bar" onclick="seekTrack(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        <button class="vote-btn" onclick="selectModel('wuetend', 'wuetend_mod3', 'Modell 3 (Empörter Choleriker)')">Diesen Favoriten wählen</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. BELEIDIGEND / FRECH -->
+  <section class="category-section" id="sec-frech">
+    <div class="cat-header">
+      <span class="cat-icon">😈</span>
+      <h2 class="cat-title">3. Beleidigend / frech</h2>
+      <span class="cat-desc">Respektlos, zynisch, arrogant & teilt gnadenlose Disses aus</span>
+    </div>
+    <div class="models-grid">
+      <!-- Modell 1 -->
+      <div class="model-card selected" id="card-frech_mod1" data-cat="frech" data-name="Modell 1 (Assi Toni / Kult-Rotzlöffel)">
+        <div class="card-top">
+          <div class="card-title-group">
+            <h3>Modell 1: Assi Toni (Kult-Rotzlöffel)</h3>
+            <div class="model-id">ID: 59fd5957...770d</div>
+          </div>
+          <span class="model-tag favorit">Top-Favorit</span>
+        </div>
+        <div class="sample-box">
+          <div class="sample-label"><span>1. Fahrtantritt</span><span>Audio-Sample</span></div>
+          <div class="sample-text">„Na du Pfeife, hast du den Schlüssel endlich gefunden? Schnall dich an und fahr los, bevor ich hier einpenne, du Amateurschleicher!“</div>
+          <div class="audio-row">
+            <button class="play-btn" onclick="togglePlay('samples/frech_mod1_start.mp3', this)"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg></button>
+            <div class="track-bar" onclick="seekTrack(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        <div class="sample-box">
+          <div class="sample-label"><span>2. Blitzer-Warnung</span><span>Audio-Sample</span></div>
+          <div class="sample-text">„Pass mal auf, Schlafmütze! Da vorne steht ein Blitzer! Nimm deinen Klumpfuß vom Gas, für die Strafe reicht dein Taschengeld eh nicht!“</div>
+          <div class="audio-row">
+            <button class="play-btn" onclick="togglePlay('samples/frech_mod1_blitzer.mp3', this)"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg></button>
+            <div class="track-bar" onclick="seekTrack(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        <button class="vote-btn" onclick="selectModel('frech', 'frech_mod1', 'Modell 1 (Assi Toni / Kult-Rotzlöffel)')">✓ Als Favorit gewählt</button>
+      </div>
+
+      <!-- Modell 2 -->
+      <div class="model-card" id="card-frech_mod2" data-cat="frech" data-name="Modell 2 (Der Boss / Arrogant)">
+        <div class="card-top">
+          <div class="card-title-group">
+            <h3>Modell 2: Der Boss (Arrogant & Toxisch)</h3>
+            <div class="model-id">ID: 01bbdc2d...1ab0</div>
+          </div>
+          <span class="model-tag">Arrogant</span>
+        </div>
+        <div class="sample-box">
+          <div class="sample-label"><span>1. Fahrtantritt</span><span>Audio-Sample</span></div>
+          <div class="sample-text">„Pass mal gut auf, Kleiner: Schnall dich an und fahr los. Und versuch wenigstens einmal, nicht wie der letzte Fahranfänger zu lenken.“</div>
+          <div class="audio-row">
+            <button class="play-btn" onclick="togglePlay('samples/frech_mod2_start.mp3', this)"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg></button>
+            <div class="track-bar" onclick="seekTrack(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        <div class="sample-box">
+          <div class="sample-label"><span>2. Blitzer-Warnung</span><span>Audio-Sample</span></div>
+          <div class="sample-text">„Blitzer voraus. Bremse lieber ab, Bürschchen – dein Kontostand weint doch jetzt schon bitterlich.“</div>
+          <div class="audio-row">
+            <button class="play-btn" onclick="togglePlay('samples/frech_mod2_blitzer.mp3', this)"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg></button>
+            <div class="track-bar" onclick="seekTrack(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        <button class="vote-btn" onclick="selectModel('frech', 'frech_mod2', 'Modell 2 (Der Boss / Arrogant)')">Diesen Favoriten wählen</button>
+      </div>
+
+      <!-- Modell 3 -->
+      <div class="model-card" id="card-frech_mod3" data-cat="frech" data-name="Modell 3 (Halbstarker / Vorlaut)">
+        <div class="card-top">
+          <div class="card-title-group">
+            <h3>Modell 3: Halbstarker (Vorlaut & Dreist)</h3>
+            <div class="model-id">ID: 9484c108...22c3</div>
+          </div>
+          <span class="model-tag">Vorlaut</span>
+        </div>
+        <div class="sample-box">
+          <div class="sample-label"><span>1. Fahrtantritt</span><span>Audio-Sample</span></div>
+          <div class="sample-text">„Ey Kollege, geht das auch schneller? Schnall dich an und drück auf die Tube, du parkst ja noch!“</div>
+          <div class="audio-row">
+            <button class="play-btn" onclick="togglePlay('samples/frech_mod3_start.mp3', this)"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg></button>
+            <div class="track-bar" onclick="seekTrack(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        <div class="sample-box">
+          <div class="sample-label"><span>2. Blitzer-Warnung</span><span>Audio-Sample</span></div>
+          <div class="sample-text">„Haha, pass auf du Vogel! Da vorne steht ein Blitzer! Geh vom Gas runter, sonst weinst du gleich bei Mama!“</div>
+          <div class="audio-row">
+            <button class="play-btn" onclick="togglePlay('samples/frech_mod3_blitzer.mp3', this)"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg></button>
+            <div class="track-bar" onclick="seekTrack(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        <button class="vote-btn" onclick="selectModel('frech', 'frech_mod3', 'Modell 3 (Halbstarker / Vorlaut)')">Diesen Favoriten wählen</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. LUSTIG / GUT DRAUF -->
+  <section class="category-section" id="sec-lustig">
+    <div class="cat-header">
+      <span class="cat-icon">🎉</span>
+      <h2 class="cat-title">4. Lustig / gut drauf</h2>
+      <span class="cat-desc">Partystimmung, lachend, enthusiastisch & ansteckend gute Laune</span>
+    </div>
+    <div class="models-grid">
+      <!-- Modell 1 -->
+      <div class="model-card selected" id="card-lustig_mod1" data-cat="lustig" data-name="Modell 1 (Knossi / Hype & Partylaune)">
+        <div class="card-top">
+          <div class="card-title-group">
+            <h3>Modell 1: Knossi (Hype & Partylaune)</h3>
+            <div class="model-id">ID: 2f550482...417f</div>
+          </div>
+          <span class="model-tag favorit">Top-Favorit</span>
+        </div>
+        <div class="sample-box">
+          <div class="sample-label"><span>1. Fahrtantritt</span><span>Audio-Sample</span></div>
+          <div class="sample-text">„Wuuuuh! Guten Morgen, Freunde des gepflegten Fahrstils! Motor an, Mukke laut, Gurt fest und ab geht die wilde Partyfahrt, let's goooo!“</div>
+          <div class="audio-row">
+            <button class="play-btn" onclick="togglePlay('samples/lustig_mod1_start.mp3', this)"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg></button>
+            <div class="track-bar" onclick="seekTrack(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        <div class="sample-box">
+          <div class="sample-label"><span>2. Blitzer-Warnung</span><span>Audio-Sample</span></div>
+          <div class="sample-text">„Hahaha, Lächeln bitte! Da vorne steht ein teurer Fototermin von der Rennleitung! Schnell runter vom Gas, sonst gibt's ein Blitzlichtgewitter!“</div>
+          <div class="audio-row">
+            <button class="play-btn" onclick="togglePlay('samples/lustig_mod1_blitzer.mp3', this)"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg></button>
+            <div class="track-bar" onclick="seekTrack(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        <button class="vote-btn" onclick="selectModel('lustig', 'lustig_mod1', 'Modell 1 (Knossi / Hype & Partylaune)')">✓ Als Favorit gewählt</button>
+      </div>
+
+      <!-- Modell 2 -->
+      <div class="model-card" id="card-lustig_mod2" data-cat="lustig" data-name="Modell 2 (Fröhlicher Entertainer)">
+        <div class="card-top">
+          <div class="card-title-group">
+            <h3>Modell 2: Fröhlicher Entertainer</h3>
+            <div class="model-id">ID: f35ecc25...aa42</div>
+          </div>
+          <span class="model-tag">Gute Laune</span>
+        </div>
+        <div class="sample-box">
+          <div class="sample-label"><span>1. Fahrtantritt</span><span>Audio-Sample</span></div>
+          <div class="sample-text">„Hallöchen zusammen! Herrliches Wetter, gute Laune im Gepäck, jetzt schnallen wir uns an und starten die wunderbare Reise!“</div>
+          <div class="audio-row">
+            <button class="play-btn" onclick="togglePlay('samples/lustig_mod2_start.mp3', this)"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg></button>
+            <div class="track-bar" onclick="seekTrack(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        <div class="sample-box">
+          <div class="sample-label"><span>2. Blitzer-Warnung</span><span>Audio-Sample</span></div>
+          <div class="sample-text">„Huch, aufgepasst ihr Lieben! Da vorne steht ein kleiner Blitzer am Wegesrand! Kurz vom Gas gehen und weiterlächeln!“</div>
+          <div class="audio-row">
+            <button class="play-btn" onclick="togglePlay('samples/lustig_mod2_blitzer.mp3', this)"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg></button>
+            <div class="track-bar" onclick="seekTrack(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        <button class="vote-btn" onclick="selectModel('lustig', 'lustig_mod2', 'Modell 2 (Fröhlicher Entertainer)')">Diesen Favoriten wählen</button>
+      </div>
+
+      <!-- Modell 3 -->
+      <div class="model-card" id="card-lustig_mod3" data-cat="lustig" data-name="Modell 3 (Comedy Bro)">
+        <div class="card-top">
+          <div class="card-title-group">
+            <h3>Modell 3: Comedy Bro</h3>
+            <div class="model-id">ID: 3543da00...a185</div>
+          </div>
+          <span class="model-tag">Locker & Witzig</span>
+        </div>
+        <div class="sample-box">
+          <div class="sample-label"><span>1. Fahrtantritt</span><span>Audio-Sample</span></div>
+          <div class="sample-text">„Jo Bro, beste Laune heute! Schnall dich an, mach das Radio an und ab geht die wilde Fahrt, let's roll!“</div>
+          <div class="audio-row">
+            <button class="play-btn" onclick="togglePlay('samples/lustig_mod3_start.mp3', this)"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg></button>
+            <div class="track-bar" onclick="seekTrack(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        <div class="sample-box">
+          <div class="sample-label"><span>2. Blitzer-Warnung</span><span>Audio-Sample</span></div>
+          <div class="sample-text">„Ey Obacht, da vorne lauert ein Blitzer! Nimm mal kurz den Fuß vom Pedal, das Geld investieren wir lieber in Pizza!“</div>
+          <div class="audio-row">
+            <button class="play-btn" onclick="togglePlay('samples/lustig_mod3_blitzer.mp3', this)"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg></button>
+            <div class="track-bar" onclick="seekTrack(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        <button class="vote-btn" onclick="selectModel('lustig', 'lustig_mod3', 'Modell 3 (Comedy Bro)')">Diesen Favoriten wählen</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Waze German Voice Community • Emotionen & Stimmungs-Studio • 44.1 kHz Mono Studio-Mastering</p>
+  </footer>
+</div>
+
+<script>
+  let currentAudio = null;
+  let currentBtn = null;
+  let currentTrackBar = null;
+  let currentTimeDisplay = null;
+
+  const selections = {
+    muede: "Modell 1 (Bernd / Depri-Kult)",
+    wuetend: "Modell 1 (Wütend / Dunkel & Drohend)",
+    frech: "Modell 1 (Assi Toni / Kult-Rotzlöffel)",
+    lustig: "Modell 1 (Knossi / Hype & Partylaune)"
+  };
+
+  function updateSummaryUI() {
+    document.getElementById('chip-muede').innerHTML = `🥱 Gelangweilt: <strong>${selections.muede}</strong>`;
+    document.getElementById('chip-wuetend').innerHTML = `🤬 Wütend: <strong>${selections.wuetend}</strong>`;
+    document.getElementById('chip-frech').innerHTML = `😈 Beleidigend: <strong>${selections.frech}</strong>`;
+    document.getElementById('chip-lustig').innerHTML = `🎉 Lustig: <strong>${selections.lustig}</strong>`;
+  }
+
+  function selectModel(cat, cardId, modelName) {
+    document.querySelectorAll(`.model-card[data-cat="${cat}"]`).forEach(card => {
+      card.classList.remove('selected');
+      const btn = card.querySelector('.vote-btn');
+      if (btn) btn.textContent = 'Diesen Favoriten wählen';
+    });
+    const targetCard = document.getElementById(`card-${cardId}`);
+    if (targetCard) {
+      targetCard.classList.add('selected');
+      const btn = targetCard.querySelector('.vote-btn');
+      if (btn) btn.textContent = '✓ Als Favorit gewählt';
+    }
+    selections[cat] = modelName;
+    updateSummaryUI();
+  }
+
+  function copySelection() {
+    const text = `1. Gelangweilt/müde: ${selections.muede}\n2. Wütend/aggressiv: ${selections.wuetend}\n3. Beleidigend/frech: ${selections.frech}\n4. Lustig/gut drauf: ${selections.lustig}`;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.querySelector('.copy-btn');
+      const orig = btn.innerHTML;
+      btn.innerHTML = `✓ In die Zwischenablage kopiert!`;
+      btn.style.background = '#10b981';
+      setTimeout(() => {
+        btn.innerHTML = orig;
+        btn.style.background = '';
+      }, 2500);
+    });
+  }
+
+  function togglePlay(src, btn) {
+    const trackBar = btn.parentElement.querySelector('.track-bar');
+    const timeDisplay = btn.parentElement.querySelector('.track-time');
+    const fill = trackBar.querySelector('.track-fill');
+
+    if (currentAudio && currentAudio.dataset.src === src) {
+      if (!currentAudio.paused) {
+        currentAudio.pause();
+        btn.innerHTML = `<svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>`;
+      } else {
+        currentAudio.play();
+        btn.innerHTML = `<svg viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>`;
+      }
+      return;
+    }
+
+    if (currentAudio) {
+      currentAudio.pause();
+      if (currentBtn) currentBtn.innerHTML = `<svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>`;
+      if (currentTrackBar) currentTrackBar.querySelector('.track-fill').style.width = '0%';
+    }
+
+    currentAudio = new Audio(src);
+    currentAudio.dataset.src = src;
+    currentBtn = btn;
+    currentTrackBar = trackBar;
+    currentTimeDisplay = timeDisplay;
+
+    btn.innerHTML = `<svg viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>`;
+
+    currentAudio.ontimeupdate = () => {
+      if (!currentAudio.duration) return;
+      const pct = (currentAudio.currentTime / currentAudio.duration) * 100;
+      fill.style.width = pct + '%';
+      const m = Math.floor(currentAudio.currentTime / 60);
+      const s = Math.floor(currentAudio.currentTime % 60).toString().padStart(2, '0');
+      timeDisplay.textContent = `${m}:${s}`;
+    };
+
+    currentAudio.onended = () => {
+      btn.innerHTML = `<svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>`;
+      fill.style.width = '0%';
+      timeDisplay.textContent = '0:00';
+    };
+
+    currentAudio.play();
+  }
+
+  function seekTrack(event, bar) {
+    if (!currentAudio) return;
+    const rect = bar.getBoundingClientRect();
+    const clickX = event.clientX - rect.left;
+    const pct = clickX / rect.width;
+    if (currentAudio.duration) {
+      currentAudio.currentTime = pct * currentAudio.duration;
+    }
+  }
+
+  function scrollToCategory(id) {
+    document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+    event.target.classList.add('active');
+    const el = document.getElementById(`sec-${id}`);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  updateSummaryUI();
+</script>
+</body>
+</html>
