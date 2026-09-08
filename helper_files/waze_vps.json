@@ -1,5 +1,20 @@
 [
   {
+    "name": "Friedrich Merz",
+    "slug": "friedrich-merz",
+    "language": "German",
+    "country_code": "DE",
+    "category": "Politik / Prominente",
+    "waze_link": "https://waze.com/ul?acvp=c054aa76-665e-452d-988d-26ece6a3b437",
+    "download_url": "https://voice-prompts-ipv6.waze.com/c054aa76-665e-452d-988d-26ece6a3b437.tar.gz",
+    "uuid": "c054aa76-665e-452d-988d-26ece6a3b437",
+    "file_size_mb": 0.635,
+    "prompts_count": 43,
+    "status": "Active",
+    "author": "German Waze Community",
+    "sample_line": "Guten Tag, hier spricht Friedrich Merz. Als Angehöriger der gehobenen Mittelschicht fliege ich normalerweise selbst..."
+  },
+  {
     "name": "MontanaBlack (Monte)",
     "slug": "montanablack",
     "language": "German",
