@@ -39,6 +39,7 @@ Das Ziel dieser Sammlung:
 |:---|:---|:---:|:---:|:---|:---:|:---:|
 | 👑 **MontanaBlack (Monte)** | Streamer / YouTuber | [📲 In Waze installieren](https://waze.com/ul?acvp=ba4b303a-afe8-4475-8853-afb610137172) | [📁 MP3-Ordner](packs/MontanaBlack/) \| [.tar.gz](https://voice-prompts-ipv6.waze.com/ba4b303a-afe8-4475-8853-afb610137172.tar.gz) | *"Rein in die Olga, ab geht die wilde Fahrt!"* | 0.47 MB | 🟢 Aktiv |
 | 🎴 **TimGioh ("Monte man, yes!")** | Streamer / Memes | [📲 In Waze installieren](https://waze.com/ul?acvp=81db5ef8-e5c9-4026-8e19-29c1aa72159d) | [📁 MP3-Ordner](packs/TimGioh/) \| [.tar.gz](https://voice-prompts-ipv6.waze.com/81db5ef8-e5c9-4026-8e19-29c1aa72159d.tar.gz) | *"Monte man, yes! Navi ist am Start, die ganze Truppe fährt los!"* | 0.50 MB | 🟢 Aktiv |
+| 💋 **Sexy & Flirty (mit Akzent)** | Charakter / Sinnlich | [📲 In Waze installieren](https://waze.com/ul?acvp=b79197e3-76d2-4fbb-b11f-b2c876a40de8) | [📁 MP3-Ordner](packs/SexyFlirt/) \| [.tar.gz](https://voice-prompts-ipv6.waze.com/b79197e3-76d2-4fbb-b11f-b2c876a40de8.tar.gz) | *"Mmmh... hallo mein Süßer. Schnall dich lieber gut an..."* | 0.65 MB | 🟢 Aktiv |
 
 > Weitere Stimmen von Streamern und Charakteren folgen in Kürze durch die Community!
 

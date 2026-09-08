@@ -28,5 +28,20 @@
     "status": "Active",
     "author": "German Waze Community",
     "sample_line": "Monte man, yes! Navi ist am Start, die ganze Truppe fährt los!"
+  },
+  {
+    "name": "Sexy & Flirty (mit Akzent)",
+    "slug": "sexy-flirty-akzent",
+    "language": "German",
+    "country_code": "DE",
+    "category": "Charakter / Sinnlich",
+    "waze_link": "https://waze.com/ul?acvp=b79197e3-76d2-4fbb-b11f-b2c876a40de8",
+    "download_url": "https://voice-prompts-ipv6.waze.com/b79197e3-76d2-4fbb-b11f-b2c876a40de8.tar.gz",
+    "uuid": "b79197e3-76d2-4fbb-b11f-b2c876a40de8",
+    "file_size_mb": 0.645,
+    "prompts_count": 43,
+    "status": "Active",
+    "author": "German Waze Community",
+    "sample_line": "Mmmh... hallo mein Süßer. Schnall dich lieber gut an... heute zeige ich dir, wo es langgeht."
   }
 ]
