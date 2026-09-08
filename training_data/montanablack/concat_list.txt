@@ -1,4 +1,0 @@
-file 'C:\Users\PC\Desktop\Waze German Voice\training_data\montanablack\rein_in_die_olga.mp3'
-file 'C:\Users\PC\Desktop\Waze German Voice\training_data\montanablack\gonergy.mp3'
-file 'C:\Users\PC\Desktop\Waze German Voice\training_data\montanablack\sauerstoff_atmen.mp3'
-file 'C:\Users\PC\Desktop\Waze German Voice\training_data\montanablack\bann_den_weg.mp3'
