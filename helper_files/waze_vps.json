@@ -15,6 +15,21 @@
     "sample_line": "Moin, Dieter hier! Dein Fahrstil klingt wie 'ne tote Katze auf'm Auspuff! Fahr endlich los..."
   },
   {
+    "name": "Drachenlord (Rainer Winkler)",
+    "slug": "drachenlord",
+    "language": "German",
+    "country_code": "DE",
+    "category": "YouTuber / Meme",
+    "waze_link": "https://waze.com/ul?acvp=cc6b7b80-813f-49e9-8f52-8d79406eeb08",
+    "download_url": "https://voice-prompts-ipv6.waze.com/cc6b7b80-813f-49e9-8f52-8d79406eeb08.tar.gz",
+    "uuid": "cc6b7b80-813f-49e9-8f52-8d79406eeb08",
+    "file_size_mb": 0.628,
+    "prompts_count": 43,
+    "status": "Active",
+    "author": "German Waze Community",
+    "sample_line": "Meddl Loide, servus und herzlich willkommen beim Drachenlord! Schnallt euch an, etzala fahr mer los!"
+  },
+  {
     "name": "Friedrich Merz",
     "slug": "friedrich-merz",
     "language": "German",
