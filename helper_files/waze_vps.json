@@ -1,0 +1,17 @@
+[
+  {
+    "name": "MontanaBlack (Monte)",
+    "slug": "montanablack",
+    "language": "German",
+    "country_code": "DE",
+    "category": "Streamer / YouTuber",
+    "waze_link": "https://waze.com/ul?acvp=ba4b303a-afe8-4475-8853-afb610137172",
+    "download_url": "https://voice-prompts-ipv6.waze.com/ba4b303a-afe8-4475-8853-afb610137172.tar.gz",
+    "uuid": "ba4b303a-afe8-4475-8853-afb610137172",
+    "file_size_mb": 0.465,
+    "prompts_count": 43,
+    "status": "Active",
+    "author": "German Waze Community",
+    "sample_line": "Jo Freunde, Monte hier! Rein in die Olga, ab geht die wilde Fahrt!"
+  }
+]

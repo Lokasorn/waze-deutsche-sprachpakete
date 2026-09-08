@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waze Voice Studio | KI-Soundpacks & YouTuber-Stimmen erstellen</title>
+  <meta name="description" content="Erstelle individuelle deutsche Waze-Soundpacks mit KI-Stimmen, YouTuber-Voice-Cloning, individuellen Skripten und 1-Klick Waze Deep Link Export.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background-mesh"></div>
+
+  <!-- App Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand">
+        <div class="brand-logo">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="waze-icon">
+            <rect width="36" height="36" rx="10" fill="url(#brand-grad)"/>
+            <path d="M18 8C12.48 8 8 12.48 8 18C8 22.8 11.4 26.8 16 27.8V25.7C12.5 24.8 10 21.7 10 18C10 13.6 13.6 10 18 10C22.4 10 26 13.6 26 18C26 21.7 23.5 24.8 20 25.7V27.8C24.6 26.8 28 22.8 28 18C28 12.48 23.52 8 18 8Z" fill="white"/>
+            <circle cx="14" cy="17" r="2" fill="white"/>
+            <circle cx="22" cy="17" r="2" fill="white"/>
+            <path d="M15 22C16 23.2 20 23.2 21 22" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="brand-grad" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#00D2FF"/>
+                <stop offset="1" stop-color="#0066FF"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>Waze Voice Studio</h1>
+          <span class="version-tag">Deutsche KI-Soundpacks</span>
+        </div>
+      </div>
+
+      <!-- Action Bar in Header -->
+      <div class="header-actions">
+        <button id="btn-open-companion" class="btn btn-secondary" title="Live Companion Modus zum schnellen manuellen Einsprechen">
+          <span class="icon">🎙️</span> Companion-Player
+        </button>
+        <button id="btn-open-clone-modal" class="btn btn-accent" title="Stimme aus YouTuber-Audiodatei klonen">
+          <span class="icon">✨</span> YouTuber-Stimme klonen
+        </button>
+        <button id="btn-new-pack" class="btn btn-primary" title="Neues Soundpack erstellen">
+          <span class="icon">➕</span> Neues Pack
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="app-main">
+    <div class="main-container">
+
+      <!-- Pack Selector & Overview Banner -->
+      <section class="pack-banner card">
+        <div class="pack-banner-content">
+          <div class="pack-selector-wrapper">
+            <label for="select-active-pack" class="label-muted">Aktives Soundpack:</label>
+            <div class="select-with-actions">
+              <select id="select-active-pack" class="custom-select"></select>
+              <button id="btn-refresh-packs" class="btn-icon" title="Aktualisieren">🔄</button>
+            </div>
+          </div>
+
+          <div class="pack-quick-stats">
+            <div class="stat-pill" id="stat-progress-pill">
+              <span class="stat-label">Fortschritt:</span>
+              <span class="stat-value" id="stat-progress-val">0 / 43</span>
+            </div>
+            <div class="stat-pill" id="stat-size-pill">
+              <span class="stat-label">Pack-Größe:</span>
+              <span class="stat-value" id="stat-size-val">0.00 MB</span>
+              <span class="limit-hint">(Max. 0.79 MB für Waze)</span>
+            </div>
+            <div class="stat-pill status-ready" id="stat-status-pill">
+              <span class="status-indicator"></span>
+              <span id="stat-status-text">Bereit</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Master Actions for Pack -->
+        <div class="pack-banner-actions">
+          <button id="btn-generate-all" class="btn btn-glow">
+            <span class="icon">⚡</span> Alle 43 Ansagen generieren
+          </button>
+          <button id="btn-optimize-size" class="btn btn-secondary">
+            <span class="icon">🎛️</span> Größe optimieren
+          </button>
+          <button id="btn-download-zip" class="btn btn-secondary">
+            <span class="icon">📦</span> ZIP Download
+          </button>
+          <button id="btn-upload-waze" class="btn btn-waze">
+            <span class="icon">🚀</span> 1-Klick Waze Link
+          </button>
+        </div>
+      </section>
+
+      <!-- Settings & Voice Configuration -->
+      <section class="config-grid">
+        <!-- Voice & Engine Card -->
+        <div class="card config-card">
+          <div class="card-header">
+            <h3><span class="icon">🗣️</span> KI-Stimme & Engine</h3>
+            <span class="badge" id="engine-badge">Microsoft Neural (Kostenlos)</span>
+          </div>
+          <div class="card-body form-grid">
+            <div class="form-group">
+              <label for="select-tts-engine">Engine-Modus:</label>
+              <select id="select-tts-engine" class="custom-select">
+                <option value="edge_tts">Microsoft Edge Neural (Kostenlos & Unbegrenzt)</option>
+                <option value="elevenlabs">ElevenLabs (YouTuber Voice-Clone & High-End)</option>
+              </select>
+            </div>
+
+            <div class="form-group" id="edge-voice-group">
+              <label for="select-edge-voice">Deutsche KI-Stimme:</label>
+              <select id="select-edge-voice" class="custom-select"></select>
+            </div>
+
+            <!-- ElevenLabs Specific settings -->
+            <div class="form-group hidden" id="elevenlabs-settings-group">
+              <label for="input-elevenlabs-api-key">ElevenLabs API-Key:</label>
+              <div class="input-with-button">
+                <input type="password" id="input-elevenlabs-api-key" placeholder="xi-..." class="custom-input">
+                <button id="btn-load-elevenlabs-voices" class="btn btn-secondary btn-sm">Stimmen laden</button>
+              </div>
+              <label for="select-elevenlabs-voice" style="margin-top: 10px;">Geklonte / Verfügbare Stimme:</label>
+              <select id="select-elevenlabs-voice" class="custom-select">
+                <option value="">(Erst API-Key eingeben und laden)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Script Preset Card -->
+        <div class="card config-card">
+          <div class="card-header">
+            <h3><span class="icon">🎭</span> Stil & Skript-Vorlage</h3>
+            <span class="badge badge-accent" id="preset-badge">Standard</span>
+          </div>
+          <div class="card-body form-grid">
+            <div class="form-group">
+              <label for="select-script-preset">Deutsches Skript-Preset:</label>
+              <select id="select-script-preset" class="custom-select">
+                <option value="standard">Standard (Seriös & Klar)</option>
+                <option value="funny">Lustig & Humorvoll (Witzige Sprüche)</option>
+                <option value="youtuber_gaming">Streamer & Gaming Slang (Digger, Lost, GG)</option>
+                <option value="choleriker">Cholerischer Beifahrer (Aufbrausend & Genervt)</option>
+              </select>
+            </div>
+            <div class="preset-description" id="preset-description-text">
+              Klare, präzise und professionelle Navigationsansagen auf Deutsch.
+            </div>
+            <button id="btn-apply-preset" class="btn btn-outline btn-sm">
+              <span class="icon">🔄</span> Vorlage auf alle 43 Texte anwenden
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Prompts Catalog & Editor Section -->
+      <section class="prompts-section card">
+        <div class="prompts-header">
+          <div class="prompts-title-group">
+            <h2>Waze Sprachbefehle (43 Ansagen)</h2>
+            <p class="subtitle">Passe die Texte individuell an, generiere sie einzeln oder höre dir die Vorschau an.</p>
+          </div>
+
+          <!-- Category Filters -->
+          <div class="category-tabs" id="category-tabs">
+            <button class="tab-btn active" data-category="all">Alle (43)</button>
+            <button class="tab-btn" data-category="start">🚀 Start der Fahrt</button>
+            <button class="tab-btn" data-category="directions">🧭 Richtungen</button>
+            <button class="tab-btn" data-category="roundabout">🔄 Kreisverkehr</button>
+            <button class="tab-btn" data-category="distances">📏 Entfernungen</button>
+            <button class="tab-btn" data-category="alerts">⚠️ Warnungen</button>
+          </div>
+        </div>
+
+        <!-- Progress bar inside table container -->
+        <div class="batch-progress-bar-container hidden" id="batch-progress-container">
+          <div class="progress-info">
+            <span id="batch-progress-label">Generiere Ansagen...</span>
+            <span id="batch-progress-count">0 / 43</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="batch-progress-fill" style="width: 0%;"></div>
+          </div>
+        </div>
+
+        <!-- Prompts Grid List -->
+        <div class="prompts-grid" id="prompts-container">
+          <!-- Populated by app.js -->
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- MODAL: Waze Share & Deep Link -->
+  <div class="modal-overlay hidden" id="modal-waze-link">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>🚀 Dein Waze Soundpack ist online!</h3>
+        <button class="modal-close" id="btn-close-waze-modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-intro">
+          Das Soundpack wurde erfolgreich zu den Waze-Servern hochgeladen. Mit diesem Link oder QR-Code kann es direkt in Waze auf iOS und Android installiert werden:
+        </p>
+
+        <div class="qr-preview-box">
+          <div id="waze-qr-code"></div>
+          <span class="qr-caption">Mit dem Smartphone scannen, um Waze zu öffnen</span>
+        </div>
+
+        <div class="link-copy-box">
+          <input type="text" readonly id="waze-deeplink-input" class="custom-input">
+          <button id="btn-copy-waze-link" class="btn btn-primary">Kopieren</button>
+        </div>
+
+        <div class="info-alert">
+          <strong>💡 Tipp:</strong> Öffne diesen Link direkt auf deinem Handy. Waze startet automatisch und fragt: <em>"Möchtest du dieses Sprachpaket herunterladen?"</em>.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="btn-waze-modal-done">Fertig</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: New Pack Creation -->
+  <div class="modal-overlay hidden" id="modal-new-pack">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>➕ Neues Soundpack anlegen</h3>
+        <button class="modal-close" id="btn-close-new-pack-modal">✕</button>
+      </div>
+      <div class="modal-body form-grid">
+        <div class="form-group">
+          <label for="new-pack-name">Pack-Name (z.B. MontanaBlack_Waze, Lustiges_Navi):</label>
+          <input type="text" id="new-pack-name" placeholder="Mein_Soundpack" class="custom-input">
+        </div>
+        <div class="form-group">
+          <label for="new-pack-preset">Start-Vorlage:</label>
+          <select id="new-pack-preset" class="custom-select">
+            <option value="standard">Standard (Seriös & Klar)</option>
+            <option value="funny">Lustig & Humorvoll</option>
+            <option value="youtuber_gaming">Streamer & Gaming Slang</option>
+            <option value="choleriker">Cholerischer Beifahrer</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="btn-cancel-new-pack">Abbrechen</button>
+        <button class="btn btn-primary" id="btn-confirm-create-pack">Erstellen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: ElevenLabs YouTuber Voice Clone -->
+  <div class="modal-overlay hidden" id="modal-clone-voice">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>✨ YouTuber / Eigene Stimme klonen</h3>
+        <button class="modal-close" id="btn-close-clone-modal">✕</button>
+      </div>
+      <div class="modal-body form-grid">
+        <p class="modal-intro">
+          Lade ein sauberes Audio-Sample (1–3 Minuten Sprache ohne Musik, z. B. aus einem Podcast oder Stream) hoch, um die Stimme mit ElevenLabs Instant Voice Cloning zu trainieren:
+        </p>
+
+        <div class="form-group">
+          <label for="clone-api-key">ElevenLabs API-Key:</label>
+          <input type="password" id="clone-api-key" placeholder="xi-..." class="custom-input">
+        </div>
+
+        <div class="form-group">
+          <label for="clone-voice-name">Name der Stimme (z.B. Monte, Papaplatte, Knossi):</label>
+          <input type="text" id="clone-voice-name" placeholder="YouTuber Name" class="custom-input">
+        </div>
+
+        <div class="form-group">
+          <label for="clone-audio-file">Audio-Datei (MP3, WAV, M4A):</label>
+          <div class="file-drop-area" id="file-drop-area">
+            <span class="drop-icon">🎵</span>
+            <span class="drop-text" id="file-drop-text">Datei hierher ziehen oder klicken zum Auswählen</span>
+            <input type="file" id="clone-audio-file" accept="audio/*" class="file-input-hidden">
+          </div>
+        </div>
+
+        <div id="clone-status-box" class="info-alert hidden"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="btn-cancel-clone">Abbrechen</button>
+        <button class="btn btn-primary" id="btn-submit-clone">Stimme trainieren & klonen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Live Companion Player -->
+  <div class="modal-overlay hidden" id="modal-companion">
+    <div class="modal-card modal-large">
+      <div class="modal-header">
+        <h3>🎙️ Live Companion Recorder</h3>
+        <button class="modal-close" id="btn-close-companion">✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-intro">
+          Öffne in deiner Waze-App: <strong>Einstellungen → Stimme & Sound → Waze-Stimme → Stimme aufnehmen</strong>.
+          Spiele hier jeden Satz über deinen PC-Lautsprecher ab, während du auf dem Smartphone die Aufnahme hältst:
+        </p>
+
+        <div class="companion-stage">
+          <div class="companion-counter" id="companion-counter">Ansage 1 von 43</div>
+          <div class="companion-title" id="companion-prompt-title">Start der Fahrt (1)</div>
+          <div class="companion-text-bubble" id="companion-prompt-text">"Alles bereit. Gute Fahrt!"</div>
+
+          <div class="companion-controls">
+            <button id="btn-companion-prev" class="btn btn-secondary">◀ Vorherige</button>
+            <button id="btn-companion-play" class="btn btn-glow btn-lg">▶ Audio abspielen</button>
+            <button id="btn-companion-next" class="btn btn-primary">Nächste ▶</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="btn-companion-done">Schließen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QR Code Library CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

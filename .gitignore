@@ -1,0 +1,23 @@
+# Environment & Secrets
+.env
+*.env
+*.key
+*.pem
+
+# Python & Caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Scratch & Temporary Audio
+scratch/
+temp/
+*.tmp
+
+# IDE & OS
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
