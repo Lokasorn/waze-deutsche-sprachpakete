@@ -13,5 +13,20 @@
     "status": "Active",
     "author": "German Waze Community",
     "sample_line": "Jo Freunde, Monte hier! Rein in die Olga, ab geht die wilde Fahrt!"
+  },
+  {
+    "name": "TimGioh (\"Monte man, yes!\")",
+    "slug": "timgioh",
+    "language": "German",
+    "country_code": "DE",
+    "category": "Streamer / Memes",
+    "waze_link": "https://waze.com/ul?acvp=81db5ef8-e5c9-4026-8e19-29c1aa72159d",
+    "download_url": "https://voice-prompts-ipv6.waze.com/81db5ef8-e5c9-4026-8e19-29c1aa72159d.tar.gz",
+    "uuid": "81db5ef8-e5c9-4026-8e19-29c1aa72159d",
+    "file_size_mb": 0.504,
+    "prompts_count": 43,
+    "status": "Active",
+    "author": "German Waze Community",
+    "sample_line": "Monte man, yes! Navi ist am Start, die ganze Truppe fährt los!"
   }
 ]
