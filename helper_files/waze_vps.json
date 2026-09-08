@@ -1,5 +1,20 @@
 [
   {
+    "name": "BastiGHG (GeoGuessr Edition)",
+    "slug": "bastighg",
+    "language": "German",
+    "country_code": "DE",
+    "category": "Streamer / Gaming",
+    "waze_link": "https://waze.com/ul?acvp=4f6feb32-5a66-4b4e-8b2e-e304bb107444",
+    "download_url": "https://voice-prompts-ipv6.waze.com/4f6feb32-5a66-4b4e-8b2e-e304bb107444.tar.gz",
+    "uuid": "4f6feb32-5a66-4b4e-8b2e-e304bb107444",
+    "file_size_mb": 0.664,
+    "prompts_count": 43,
+    "status": "Active",
+    "author": "German Waze Community",
+    "sample_line": "Moin moin meine aktiven Freunde, Basti hier! Schnallt euch an, wir gehen jetzt no move, no pan auf die Autobahn, let's go!"
+  },
+  {
     "name": "Dieter Bohlen",
     "slug": "dieter-bohlen",
     "language": "German",
