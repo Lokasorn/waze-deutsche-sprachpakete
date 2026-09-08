@@ -30,6 +30,21 @@
     "sample_line": "Jo Freunde, Monte hier! Rein in die Olga, ab geht die wilde Fahrt!"
   },
   {
+    "name": "Papaplatte (Kevin Teller)",
+    "slug": "papaplatte",
+    "language": "German",
+    "country_code": "DE",
+    "category": "Streamer / YouTuber",
+    "waze_link": "https://waze.com/ul?acvp=a51e17d3-d819-443b-806d-62e1db8e6a59",
+    "download_url": "https://voice-prompts-ipv6.waze.com/a51e17d3-d819-443b-806d-62e1db8e6a59.tar.gz",
+    "uuid": "a51e17d3-d819-443b-806d-62e1db8e6a59",
+    "file_size_mb": 0.543,
+    "prompts_count": 43,
+    "status": "Active",
+    "author": "German Waze Community",
+    "sample_line": "Was geht ab, Chat! Kevin hier, aka Papaplatte. Bro, schnall dich an, wir ballern jetzt los!"
+  },
+  {
     "name": "TimGioh (\"Monte man, yes!\")",
     "slug": "timgioh",
     "language": "German",

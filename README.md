@@ -42,6 +42,7 @@ Das Ziel dieser Sammlung:
 |:---|:---|:---:|:---:|:---|:---:|:---:|
 | 🇩🇪 **Friedrich Merz** | Politik / Prominente | [📲 In Waze installieren](https://waze.com/ul?acvp=c054aa76-665e-452d-988d-26ece6a3b437) | [📁 MP3-Ordner](packs/FriedrichMerz/) \| [.tar.gz](https://voice-prompts-ipv6.waze.com/c054aa76-665e-452d-988d-26ece6a3b437.tar.gz) | *"Als Angehöriger der gehobenen Mittelschicht fliege ich normalerweise selbst..."* | 0.64 MB | 🟢 Aktiv |
 | 👑 **MontanaBlack (Monte)** | Streamer / YouTuber | [📲 In Waze installieren](https://waze.com/ul?acvp=ba4b303a-afe8-4475-8853-afb610137172) | [📁 MP3-Ordner](packs/MontanaBlack/) \| [.tar.gz](https://voice-prompts-ipv6.waze.com/ba4b303a-afe8-4475-8853-afb610137172.tar.gz) | *"Rein in die Olga, ab geht die wilde Fahrt!"* | 0.47 MB | 🟢 Aktiv |
+| ⚡ **Papaplatte (Kevin Teller)** | Streamer / YouTuber | [📲 In Waze installieren](https://waze.com/ul?acvp=a51e17d3-d819-443b-806d-62e1db8e6a59) | [📁 MP3-Ordner](packs/Papaplatte/) \| [.tar.gz](https://voice-prompts-ipv6.waze.com/a51e17d3-d819-443b-806d-62e1db8e6a59.tar.gz) | *"Was geht ab, Chat! Kevin hier, aka Papaplatte. Bro, schnall dich an..."* | 0.54 MB | 🟢 Aktiv |
 | 🎴 **TimGioh ("Monte man, yes!")** | Streamer / Memes | [📲 In Waze installieren](https://waze.com/ul?acvp=81db5ef8-e5c9-4026-8e19-29c1aa72159d) | [📁 MP3-Ordner](packs/TimGioh/) \| [.tar.gz](https://voice-prompts-ipv6.waze.com/81db5ef8-e5c9-4026-8e19-29c1aa72159d.tar.gz) | *"Monte man, yes! Navi ist am Start, die ganze Truppe fährt los!"* | 0.50 MB | 🟢 Aktiv |
 
 ---
