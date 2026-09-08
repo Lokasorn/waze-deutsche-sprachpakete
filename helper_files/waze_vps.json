@@ -1,5 +1,20 @@
 [
   {
+    "name": "Angela Merkel",
+    "slug": "angela-merkel",
+    "language": "German",
+    "country_code": "DE",
+    "category": "Politik / Prominente",
+    "waze_link": "https://waze.com/ul?acvp=36fadc56-8bf6-4956-9d94-cbe280d49c92",
+    "download_url": "https://voice-prompts-ipv6.waze.com/36fadc56-8bf6-4956-9d94-cbe280d49c92.tar.gz",
+    "uuid": "36fadc56-8bf6-4956-9d94-cbe280d49c92",
+    "file_size_mb": 0.673,
+    "prompts_count": 43,
+    "status": "Active",
+    "author": "German Waze Community",
+    "sample_line": "Guten Tag, meine Damen und Herren. Wir stehen vor einer anspruchsvollen Fahrt, aber ich sage Ihnen: Wir schaffen das."
+  },
+  {
     "name": "BastiGHG (GeoGuessr Edition)",
     "slug": "bastighg",
     "language": "German",
