@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Verifikation: Kölsch (Rheinisch) - Alle 43 Waze-Ansagen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #090d16;
+      color: #f1f5f9;
+      padding: 40px 20px;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+    header { text-align: center; margin-bottom: 30px; }
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: #38bdf8;
+      margin-bottom: 8px;
+    }
+    .subtitle { color: #94a3b8; font-size: 15px; }
+    .prompt-card {
+      background: rgba(17, 24, 39, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .prompt-num {
+      font-family: monospace;
+      font-weight: 700;
+      color: #38bdf8;
+      min-width: 32px;
+    }
+    .prompt-info { flex: 1; }
+    .prompt-filename { font-weight: 600; font-size: 14px; color: #e2e8f0; margin-bottom: 2px; }
+    .prompt-text { font-size: 13px; color: #94a3b8; font-style: italic; }
+    .audio-control { display: flex; align-items: center; gap: 10px; min-width: 240px; }
+    .play-btn {
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .play-btn svg { width: 14px; height: 14px; fill: currentColor; }
+    .track-bar { flex: 1; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; position: relative; cursor: pointer; }
+    .track-fill { position: absolute; left: 0; top: 0; bottom: 0; width: 0%; background: #38bdf8; border-radius: 3px; }
+    .track-time { font-family: monospace; font-size: 11px; color: #64748b; width: 30px; text-align: right; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Kölsch (Rheinisch) – Alle 43 Waze-Ansagen</h1>
+    <p class="subtitle">Vollständige Audio-Verifikation aller 43 navigationsrelevanten Prompts</p>
+  </header>
+  <div class="prompts-list">
+    
+        <div class="prompt-card">
+          <div class="prompt-num">#1</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">StartDrive1.mp3</div>
+            <div class="prompt-text">„Tach zesamme! Kölle Alaaf, Hände ans Lenkrad, anschnalle und maach loss!“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('StartDrive1.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#2</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">StartDrive2.mp3</div>
+            <div class="prompt-text">„Moin moin, ming Fründ! Schnall dich an, et kütt wie et kütt und mir fahre jetz loss!“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('StartDrive2.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#3</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">StartDrive3.mp3</div>
+            <div class="prompt-text">„Alaaf! Setz dich hin, maach de Musik an und ab jeht de Faaahrt!“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('StartDrive3.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#4</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">StartDrive4.mp3</div>
+            <div class="prompt-text">„Jodden Daach! Nix vür unjoot, aber jetz simmer ungerwääs! Jass jevve!“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('StartDrive4.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#5</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">StartDrive5.mp3</div>
+            <div class="prompt-text">„Tach auch! Anschnalle nit verjesse, der Dom wart nit op uns! Los jeht's!“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('StartDrive5.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#6</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">StartDrive6.mp3</div>
+            <div class="prompt-text">„Kölle Alaaf! Motor aan, Kopfe frei und maach hinne, mir han e Ziel!“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('StartDrive6.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#7</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">StartDrive7.mp3</div>
+            <div class="prompt-text">„Wat wells de maache, mer müsse fahre! Anschnalle und losjeht die Reise!“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('StartDrive7.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#8</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">StartDrive8.mp3</div>
+            <div class="prompt-text">„Tach zesamme! Immer mit der Ruhe, aber jetz jeht's loss! Vürsichtich fahre!“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('StartDrive8.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#9</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">StartDrive9.mp3</div>
+            <div class="prompt-text">„Alaaf zesamme! Navi lööf, Laune is jot, mir fahre jetz loss!“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('StartDrive9.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#10</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">TurnLeft.mp3</div>
+            <div class="prompt-text">„Jetz links affbeje. Scheen links eröm!“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('TurnLeft.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#11</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">TurnRight.mp3</div>
+            <div class="prompt-text">„Jetz räächts affbeje. Räächts eröm!“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('TurnRight.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#12</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">KeepLeft.mp3</div>
+            <div class="prompt-text">„Halt dich links. Links blieve!“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('KeepLeft.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#13</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">KeepRight.mp3</div>
+            <div class="prompt-text">„Halt dich räächts. Räächts blieve!“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('KeepRight.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#14</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">Straight.mp3</div>
+            <div class="prompt-text">„Jraaduss weiterfahre. Einfach jraaduss blieve!“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('Straight.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#15</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">uturn.mp3</div>
+            <div class="prompt-text">„Bitte wende! Do jeht et nit wigger, dreh dä Schlurren üm!“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('uturn.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#16</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">ExitLeft.mp3</div>
+            <div class="prompt-text">„Nimm de Ausfahrt links. Pass op!“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('ExitLeft.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#17</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">ExitRight.mp3</div>
+            <div class="prompt-text">„Nimm de Ausfahrt räächts. Jetz erus!“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('ExitRight.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#18</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">AndThen.mp3</div>
+            <div class="prompt-text">„Un dohnoh...“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('AndThen.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#19</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">200meters.mp3</div>
+            <div class="prompt-text">„In zweihundert Metern...“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('200meters.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#20</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">400meters.mp3</div>
+            <div class="prompt-text">„In vierhundert Metern...“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('400meters.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#21</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">800meters.mp3</div>
+            <div class="prompt-text">„In achthundert Metern...“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('800meters.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#22</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">1000meters.mp3</div>
+            <div class="prompt-text">„In enem Kilometer...“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('1000meters.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#23</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">1500meters.mp3</div>
+            <div class="prompt-text">„In anderthalb Kilometern...“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('1500meters.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#24</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">200.mp3</div>
+            <div class="prompt-text">„In zweihundert Metern...“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('200.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#25</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">400.mp3</div>
+            <div class="prompt-text">„In vierhundert Metern...“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('400.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#26</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">800.mp3</div>
+            <div class="prompt-text">„In achthundert Metern...“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('800.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#27</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">1500.mp3</div>
+            <div class="prompt-text">„In fuffzehnhundert Metern...“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('1500.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#28</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">Roundabout.mp3</div>
+            <div class="prompt-text">„Em Kreisverkehr...“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('Roundabout.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#29</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">First.mp3</div>
+            <div class="prompt-text">„...nimmste de eetste Ausfahrt.“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('First.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#30</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">Second.mp3</div>
+            <div class="prompt-text">„...nimmste de zweite Ausfahrt.“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('Second.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#31</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">Third.mp3</div>
+            <div class="prompt-text">„...nimmste de dritte Ausfahrt.“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('Third.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#32</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">Fourth.mp3</div>
+            <div class="prompt-text">„...nimmste de veerte Ausfahrt.“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('Fourth.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#33</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">Fifth.mp3</div>
+            <div class="prompt-text">„...nimmste de fünfte Ausfahrt.“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('Fifth.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#34</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">Sixth.mp3</div>
+            <div class="prompt-text">„...nimmste de säächste Ausfahrt.“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('Sixth.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#35</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">Seventh.mp3</div>
+            <div class="prompt-text">„...nimmste de siebente Ausfahrt.“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('Seventh.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#36</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">Police.mp3</div>
+            <div class="prompt-text">„Pass op! De Schutzmänner stonn do vürre! Fahr brav, sonst jitt et Knöllche!“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('Police.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#37</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">ApproachSpeedCam.mp3</div>
+            <div class="prompt-text">„Pass op, ming Fründ! Blitzer voraus! Nimm dä Foooß vom Gas, sonst biste dä Lappen loos, verstonge?“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('ApproachSpeedCam.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#38</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">ApproachRedLightCam.mp3</div>
+            <div class="prompt-text">„Ampel-Blitzer vürre! Bei Rut blievste schünn stonn, höörste?“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('ApproachRedLightCam.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#39</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">ApproachHazard.mp3</div>
+            <div class="prompt-text">„Jefahr op dä Stroß! Maach de Oore op un fahr vürsichtich dran vorbei!“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('ApproachHazard.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#40</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">ApproachTraffic.mp3</div>
+            <div class="prompt-text">„Och nö, Stau voraus! Do stehste jetz erst ens, drink mer e Kölsch em Jeiste!“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('ApproachTraffic.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#41</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">ApproachAccident.mp3</div>
+            <div class="prompt-text">„Pass op, e Unfall do vürre! Langsam maache un Pietät bewahre!“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('ApproachAccident.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#42</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">Arrive.mp3</div>
+            <div class="prompt-text">„Et is vollbracht! Du bis am Ziel anjekumme! Jetz Motor us und af en de Kneipe!“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('Arrive.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+        <div class="prompt-card">
+          <div class="prompt-num">#43</div>
+          <div class="prompt-info">
+            <div class="prompt-filename">TickerPoints.mp3</div>
+            <div class="prompt-text">„Punkte kassiert! Dat häste jood jemaat, ming Jung!“</div>
+          </div>
+          <div class="audio-control">
+            <button class="play-btn" onclick="togglePlay('TickerPoints.mp3', this)">
+              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            </button>
+            <div class="track-bar" onclick="seek(event, this)"><div class="track-fill"></div></div>
+            <span class="track-time">0:00</span>
+          </div>
+        </div>
+        
+  </div>
+</div>
+<script>
+  let currentAudio = null;
+  let currentBtn = null;
+  let currentFill = null;
+  let currentTime = null;
+
+  function togglePlay(file, btn) {
+    const row = btn.parentElement;
+    const fill = row.querySelector('.track-fill');
+    const timeDisplay = row.querySelector('.track-time');
+
+    if (currentAudio && currentAudio.dataset.file === file) {
+      if (!currentAudio.paused) {
+        currentAudio.pause();
+        btn.innerHTML = '<svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>';
+      } else {
+        currentAudio.play();
+        btn.innerHTML = '<svg viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>';
+      }
+      return;
+    }
+
+    if (currentAudio) {
+      currentAudio.pause();
+      if (currentBtn) currentBtn.innerHTML = '<svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>';
+      if (currentFill) currentFill.style.width = '0%';
+    }
+
+    currentAudio = new Audio(file);
+    currentAudio.dataset.file = file;
+    currentBtn = btn;
+    currentFill = fill;
+    currentTime = timeDisplay;
+    btn.innerHTML = '<svg viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>';
+
+    currentAudio.ontimeupdate = () => {
+      if (!currentAudio.duration) return;
+      currentFill.style.width = (currentAudio.currentTime / currentAudio.duration * 100) + '%';
+      const m = Math.floor(currentAudio.currentTime / 60);
+      const s = Math.floor(currentAudio.currentTime % 60).toString().padStart(2, '0');
+      currentTime.textContent = `${m}:${s}`;
+    };
+
+    currentAudio.onended = () => {
+      btn.innerHTML = '<svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>';
+      currentFill.style.width = '0%';
+      currentTime.textContent = '0:00';
+    };
+
+    currentAudio.play();
+  }
+
+  function seek(e, bar) {
+    if (!currentAudio) return;
+    const rect = bar.getBoundingClientRect();
+    const pos = (e.clientX - rect.left) / rect.width;
+    if (currentAudio.duration) currentAudio.currentTime = pos * currentAudio.duration;
+  }
+</script>
+</body>
+</html>
