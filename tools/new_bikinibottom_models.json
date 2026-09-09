@@ -1,0 +1,137 @@
+{
+  "spongebob": {
+    "title": "SpongeBob Schwammkopf (Deutsch - Santiago Ziesmer)",
+    "model_id": "01f717b1864a44719d88934f841d52ff",
+    "raw": {
+      "_id": "01f717b1864a44719d88934f841d52ff",
+      "type": "tts",
+      "title": "SpongeBob Schwammkopf (Deutsch - Santiago Ziesmer)",
+      "description": "",
+      "cover_image": "coverimage/01f717b1864a44719d88934f841d52ff",
+      "train_mode": "fast",
+      "state": "trained",
+      "tags": [],
+      "samples": [],
+      "created_at": "2026-09-09T17:13:23.382189Z",
+      "updated_at": "2026-09-09T17:13:23.381772Z",
+      "languages": [
+        "de"
+      ],
+      "visibility": "private",
+      "lock_visibility": false,
+      "dmca_taken_down": false,
+      "takedown_category": null,
+      "default_text": "",
+      "source": "api",
+      "licensed": false,
+      "pvc_release_state": null,
+      "pvc_notice_period_months": null,
+      "pvc_released_at": null,
+      "pvc_retire_requested_at": null,
+      "pvc_retire_effective_at": null,
+      "quality": null,
+      "like_count": 0,
+      "mark_count": 0,
+      "shared_count": 0,
+      "task_count": 0,
+      "unliked": false,
+      "liked": false,
+      "marked": false,
+      "author": {
+        "_id": "5e91db98ad49499d863255750d2cee9a",
+        "nickname": "Zundarian",
+        "avatar": "avatars/5e91db98ad49499d863255750d2cee9a.jpg"
+      }
+    }
+  },
+  "thaddaeus_kind": {
+    "title": "Thaddäus Tentakel (Kinderfreundlich - Eberhard Prüter)",
+    "model_id": "8d1e3f20f3af41649511dc2434919c98",
+    "raw": {
+      "_id": "8d1e3f20f3af41649511dc2434919c98",
+      "type": "tts",
+      "title": "Thaddäus Tentakel (Kinderfreundlich - Eberhard Prüter)",
+      "description": "",
+      "cover_image": "coverimage/8d1e3f20f3af41649511dc2434919c98",
+      "train_mode": "fast",
+      "state": "trained",
+      "tags": [],
+      "samples": [],
+      "created_at": "2026-09-09T17:13:30.252111Z",
+      "updated_at": "2026-09-09T17:13:30.247853Z",
+      "languages": [
+        "de"
+      ],
+      "visibility": "private",
+      "lock_visibility": false,
+      "dmca_taken_down": false,
+      "takedown_category": null,
+      "default_text": "",
+      "source": "api",
+      "licensed": false,
+      "pvc_release_state": null,
+      "pvc_notice_period_months": null,
+      "pvc_released_at": null,
+      "pvc_retire_requested_at": null,
+      "pvc_retire_effective_at": null,
+      "quality": null,
+      "like_count": 0,
+      "mark_count": 0,
+      "shared_count": 0,
+      "task_count": 0,
+      "unliked": false,
+      "liked": false,
+      "marked": false,
+      "author": {
+        "_id": "5e91db98ad49499d863255750d2cee9a",
+        "nickname": "Zundarian",
+        "avatar": "avatars/5e91db98ad49499d863255750d2cee9a.jpg"
+      }
+    }
+  },
+  "thaddaeus_rage": {
+    "title": "Thaddäus Tentakel (Rage Modus - Eberhard Prüter)",
+    "model_id": "0f256abef80f45a38cce0c71d1b02f3a",
+    "raw": {
+      "_id": "0f256abef80f45a38cce0c71d1b02f3a",
+      "type": "tts",
+      "title": "Thaddäus Tentakel (Rage Modus - Eberhard Prüter)",
+      "description": "",
+      "cover_image": "coverimage/0f256abef80f45a38cce0c71d1b02f3a",
+      "train_mode": "fast",
+      "state": "trained",
+      "tags": [],
+      "samples": [],
+      "created_at": "2026-09-09T17:13:36.538567Z",
+      "updated_at": "2026-09-09T17:13:36.538103Z",
+      "languages": [
+        "de"
+      ],
+      "visibility": "private",
+      "lock_visibility": false,
+      "dmca_taken_down": false,
+      "takedown_category": null,
+      "default_text": "",
+      "source": "api",
+      "licensed": false,
+      "pvc_release_state": null,
+      "pvc_notice_period_months": null,
+      "pvc_released_at": null,
+      "pvc_retire_requested_at": null,
+      "pvc_retire_effective_at": null,
+      "quality": null,
+      "like_count": 0,
+      "mark_count": 0,
+      "shared_count": 0,
+      "task_count": 0,
+      "unliked": false,
+      "liked": false,
+      "marked": false,
+      "author": {
+        "_id": "5e91db98ad49499d863255750d2cee9a",
+        "nickname": "Zundarian",
+        "avatar": "avatars/5e91db98ad49499d863255750d2cee9a.jpg"
+      }
+    }
+  }
+}

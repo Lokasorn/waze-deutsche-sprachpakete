@@ -15,6 +15,12 @@ __pycache__/
 scratch/
 temp/
 *.tmp
+tools/raw_*
+tools/*_samples*/
+tools/*_cuts/
+tools/*.wav
+tools/temp_*
+tools/*.tar.gz
 
 # IDE & OS
 .vscode/

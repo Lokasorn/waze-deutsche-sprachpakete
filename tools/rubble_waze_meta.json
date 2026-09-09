@@ -1,0 +1,15 @@
+{
+  "name": "Paw Patrol: Rubble",
+  "slug": "paw-patrol-rubble",
+  "language": "German",
+  "country_code": "DE",
+  "category": "Cartoons & Kinder",
+  "waze_link": "https://waze.com/ul?acvp=c3e29b17-cf75-4110-97b0-66255abbadaa",
+  "download_url": "https://voice-prompts-ipv6.waze.com/c3e29b17-cf75-4110-97b0-66255abbadaa.tar.gz",
+  "uuid": "c3e29b17-cf75-4110-97b0-66255abbadaa",
+  "file_size_mb": 0.596,
+  "prompts_count": 43,
+  "status": "Active",
+  "author": "German Waze Community",
+  "sample_line": "Rubble packt an! Hey ho, alle Pfoten an Bord! Schnall dich gut an, dein Bauarbeiter-Welpe ist bereit. Lass uns losbaggern!"
+}
