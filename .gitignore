@@ -4,23 +4,30 @@
 *.key
 *.pem
 
-# Python & Caches
+# Python Scripts & Development Tools
+tools/
+*.py
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 .pytest_cache/
 
+# Previews, Samples & HTML Verification Pages
+*.html
+**/*.html
+packs/Samples_*/
+packs/Dialekte/
+packs/Emotionen/
+packs/**/samples/
+packs/**/raw/
+
 # Scratch & Temporary Audio
 scratch/
 temp/
 *.tmp
-tools/raw_*
-tools/*_samples*/
-tools/*_cuts/
-tools/*.wav
-tools/temp_*
-tools/*.tar.gz
+*.wav
+*.tar.gz
 
 # IDE & OS
 .vscode/
